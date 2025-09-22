@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class PartyAffiliation {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int partyAffil = 0;
+        String outputMsg = "";
+
+        // Prompt the user
+        System.out.println("Enter your Party Affiliation:");
+        System.out.println("1 - Democrat");
+        System.out.println("2 - Republican");
+        System.out.println("3 - Independent");
+        System.out.println("4 - Other");
+        System.out.print("Enter your choice (1 - 4): ");
+
+        if (in.hasNextInt()) {
+            partyAffil = in.nextInt();
+
+            if (partyAffil >= 1 && partyAffil <= 4) {
+                switch (partyAffil) {
+                    case 1:
+                        outputMsg = "You are a Democrat!";
+                        break;
+                    case 2:
+                        outputMsg = "You are a Republican!";
+                        break;
+                    case 3:
+                        outputMsg = "You are an Independent!";
+                        break;
+                    case 4:
+                        outputMsg = "You are Other!";
+                        break;
+                }
+            } else {
+                outputMsg = "Invalid selection. Please enter a number between 1 and 4.";
+            }
+        } else {
+            outputMsg = "Invalid input. Please enter a numeric value.";
+        }
+
+        System.out.println(outputMsg);
+        in.close();
+    }
+}
