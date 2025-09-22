@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class BirthMonth {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int birthMonth = 0;
+        String outputMsg = "";
+
+        // Prompt the user
+        System.out.println("Enter your birth month:");
+        System.out.println("1 - January");
+        System.out.println("2 - February");
+        System.out.println("3 - March");
+        System.out.println("4 - April");
+        System.out.println("5 - May");
+        System.out.println("6 - June");
+        System.out.println("7 - July");
+        System.out.println("8 - August");
+        System.out.println("9 - September");
+        System.out.println("10 - October");
+        System.out.println("11 - November");
+        System.out.println("12 - December");
+        System.out.print("Enter your choice (1 - 12): ");
+
+        if (in.hasNextInt()) {
+            birthMonth = in.nextInt();
+
+            if (birthMonth >= 1 && birthMonth <= 12) {
+                outputMsg = "Your month is " + getMonthName(birthMonth);
+            } else {
+                outputMsg = "Invalid month. Please enter a value between 1 and 12.";
+            }
+        } else {
+            outputMsg = "Invalid input. Please enter a number.";
+        }
+
+        System.out.println(outputMsg);
+        in.close();
+    }
+
+    // Method to return month name based on number
+    public static String getMonthName(int month) {
+        String[] months = {
+                "January", "February", "March", "April",
+                "May", "June", "July", "August",
+                "September", "October", "November", "December"
+        };
+        return months[month - 1];
+    }
+}
+
